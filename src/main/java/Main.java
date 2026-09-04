@@ -141,9 +141,21 @@ public class Main {
         String course = scanner.nextLine();
 
         Student student =
-                new Student(id, name, email, course);
+        new Student(id, name, email, course);
 
-        studentDAO.addStudent(student);
+try {
+
+    student.validate();
+
+    studentDAO.addStudent(student);
+
+} catch (InvalidStudentException e) {
+
+    System.out.println(
+            "Validation Error: " +
+            e.getMessage()
+    );
+}
     }
 
     private static void viewAllStudents() {
