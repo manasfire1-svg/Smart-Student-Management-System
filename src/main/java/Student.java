@@ -1,21 +1,20 @@
-public class Student {
+public class Student extends User {
 
-    private int studentId;
-    private String name;
-    private String email;
     private String course;
 
-    public Student(int studentId, String name,
-                   String email, String course) {
+    public Student(
+            int studentId,
+            String name,
+            String email,
+            String course) {
 
-        this.studentId = studentId;
-        this.name = name;
-        this.email = email;
+        super(studentId, name, email);
+
         this.course = course;
     }
 
     public int getStudentId() {
-        return studentId;
+        return id;
     }
 
     public String getName() {
@@ -30,13 +29,28 @@ public class Student {
         return course;
     }
 
+    @Override
+    public void displayRole() {
+
+        System.out.println("Role : Student");
+    }
+
     public void displayDetails() {
 
-        System.out.println("--------------------------------");
-        System.out.println("Student ID : " + studentId);
-        System.out.println("Name       : " + name);
-        System.out.println("Email      : " + email);
-        System.out.println("Course     : " + course);
-        System.out.println("--------------------------------");
+        System.out.println(
+                "--------------------------------"
+        );
+
+        displayBasicInfo();
+
+        System.out.println(
+                "Course: " + course
+        );
+
+        displayRole();
+
+        System.out.println(
+                "--------------------------------"
+        );
     }
 }
