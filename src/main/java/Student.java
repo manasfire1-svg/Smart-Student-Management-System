@@ -1,5 +1,4 @@
-public class Student extends User {
-
+public class Student extends User implements Reportable {
     private String course;
 
     public Student(
@@ -34,6 +33,17 @@ public class Student extends User {
 
         System.out.println("Role : Student");
     }
+
+    @Override
+public void generateSummary() {
+
+    System.out.println();
+    System.out.println("===== STUDENT SUMMARY =====");
+    System.out.println("Student ID : " + id);
+    System.out.println("Name       : " + name);
+    System.out.println("Course     : " + course);
+    System.out.println("===========================");
+}
 
     public void displayDetails() {
 
