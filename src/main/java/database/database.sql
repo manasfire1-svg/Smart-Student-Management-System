@@ -1,3 +1,0 @@
-CREATE DATABASE student_management;
-
-USE student_management;
