@@ -1,3 +1,11 @@
+import dao.AcademicDAO;
+import dao.AttendanceDAO;
+import dao.StudentDAO;
+import model.AcademicRecord;
+import model.AttendanceRecord;
+import model.Student;
+import service.ReportThread;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -141,21 +149,21 @@ public class Main {
         String course = scanner.nextLine();
 
         Student student =
-        new Student(id, name, email, course);
+                new Student(id, name, email, course);
 
-try {
+        try {
 
-    student.validate();
+            student.validate();
 
-    studentDAO.addStudent(student);
+            studentDAO.addStudent(student);
 
-} catch (InvalidStudentException e) {
+        } catch (Exception e) {
 
-    System.out.println(
-            "Validation Error: " +
-            e.getMessage()
-    );
-}
+            System.out.println(
+                    "Validation Error: " +
+                    e.getMessage()
+            );
+        }
     }
 
     private static void viewAllStudents() {
